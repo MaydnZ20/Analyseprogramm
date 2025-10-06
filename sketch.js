@@ -13,7 +13,7 @@ let Frv;
 let Frh;
 let carCount = 1;
 let cableCount = 3;
-let systemType = "Fächer";
+let systemType = "Büschel";
 
 function setup() {
   createCanvas(1240, 600, WEBGL);
@@ -41,7 +41,7 @@ function setup() {
   
     createP("Systemtyp wählen:");
   systemSelector = createSelect();
-  systemSelector.option("Fächer");
+  systemSelector.option("Büschel");
   systemSelector.option("Harfe");
   systemSelector.changed(() => systemType = systemSelector.value());
 
@@ -120,7 +120,7 @@ function drawBridge(){
   stroke(255);
   strokeWeight(2);
   
-  if (systemType === "Fächer") {
+  if (systemType === "Büschel") {
   line(bridgeLength2/6, -100, 0,-300);
   line(-bridgeLength2/6, -100, 0,-300);
   line(bridgeLength2/3, -100, 0,-300);
@@ -207,7 +207,7 @@ function drawInfo() {
   Frv = 0;
   Frh = 0;
   
-  if (systemType === "Fächer") {
+  if (systemType === "Büschel") {
   let Vector1 = bridgeLength / 6;
   let Vector2 = (bridgeLength / 6)*2;
   let Vector3 = (bridgeLength / 6)*3;
@@ -226,7 +226,7 @@ function drawInfo() {
   degrees();
   let angle = atan(200 / Vector);
   Frv = (F / sin(angle)) * 3;
-  Frh = (F / sin(90)) * 3;
+  Frh = (F / tan(angle)) * 3;
   }
   
 

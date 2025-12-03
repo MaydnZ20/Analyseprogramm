@@ -45,12 +45,9 @@ function setup() {
   systemSelector.option("Harfe");
   systemSelector.changed(() => systemType = systemSelector.value());
 
- createP("Brückenlänge wählen (100–800):");
-  lengthInput = createInput(bridgeLength + "", "number");
-  lengthInput.attribute("min", 100);
-  lengthInput.attribute("max", 800);
-  lengthInput.attribute("step", 10); 
-  lengthInput.input(onLengthChanged);
+createP("Brückenlänge wählen (100–800):");
+lengthInput = createSlider(100, 800, bridgeLength, 10);
+lengthInput.input(onLengthChanged);
   
   createP("Anzahl Autos wählen:");
   carCountSelector = createSelect();
@@ -285,3 +282,4 @@ textHorizontalkraft.html(`Horizontalkraft: ${Frh.toFixed(2)} N`);
    
   
 }
+
